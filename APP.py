@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import pickle
 app=Flask(__name__) 
-model=pickle.load(open("/storage/emulated/0/Download/Bank_Fraud_Detector/best_model.pkl","rb"))
+model=pickle.load(open("best_model.pkl","rb"))
 @app.route("/",methods=["GET","POST"])
 def myfunc():
     response=None
