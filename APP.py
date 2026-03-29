@@ -1,7 +1,6 @@
 from flask import Flask,render_template, request
 import os
 import numpy as np
-import pandas as pd
 import pickle
 app=Flask(__name__) 
 model=pickle.load(open("best_model.pkl","rb"))
