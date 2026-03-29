@@ -3,7 +3,7 @@ import os
 import numpy as np
 import pickle
 app=Flask(__name__) 
-model=pickle.load(open("best_model.pkl","rb"))
+model=pickle.load(open("best_model_1.pkl","rb"))
 @app.route("/",methods=["GET","POST"])
 def myfunc():
     response=None
