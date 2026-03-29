@@ -32,8 +32,10 @@ def myfunc():
         RedFlag_Attempt=PrevFraudFlag+FailedAttempts
         AmountToBalance_nRatio=n_TransactionAmount/n_AccountBalance
         features=np.array([[Age,Bank,NumTransactionsDay,TransactionHour,TransactionDay,Channel,LocationMatch,DeviceKnown,PrevFraudFlag,AccountAgeMonths,FailedAttempts,InternationalTransaction,AmountToBalanceRatio,n_TransactionAmount,n_AccountBalance,UnusualTransactionHour,RedFlag_Attempt,AmountToBalance_nRatio]])
-        k=model.predict(features)[0]
-        if k==0:
+        prob=model.predict_proba(features)[:,1]
+        threshold=0.4
+        g=((prob>=threshold).astype(int))[0]
+        if g==0:
             response="Not Fraud(Clean)"
         else:
             response="Fraud(Red Flag)"
