@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{ url_for('static', filename='Gdesign.css') }}">
+  <title>Bank_Fraud Detector</title>
+</head>
+<body>
+  <div class="hform">
+    <form action="/" method="POST">
+    <h2>Bank Fraud Detector</h2>
+    <br>
+    <p>Enter Details To Detect</p>
+    <br>
+    <label>Age:</label>
+    <input type="number" name="age"  placeholder="Enter the Age of Customer" required>
+    <br>
+    <label>TransactionAmount:</label>
+    <input type="number" name="trans_amount" placeholder="Enter Transaction Amount" required>
+    <br>
+    <label>Account Balance:</label>
+    <input type="number" name="acc_balance" placeholder="Enter Current Account Balance" required>
+    <br>
+    <label>Account Age:</label>
+    <input type="number" name="acc_age" placeholder="Enter Account Age in Months" required>
+    <br>
+    <label>Transaction Hour:</label>
+    <input type="number" name="hour" placeholder="Enter Hour of Transaction (/24hours)" required>
+    <br>
+    <label>Number Of Transactions(Day):</label>
+    <input type="number" name="transactions" placeholder="Enter Number of Trasactions Made(Day)" required>
+    <br>
+    <label>Failed Attempt:</label>
+    <input type="number" name="failed_attempts" placeholder="Enter Number of Failed Transaction Attempts" required>
+    <br>
+    <label>Device Known:</label>
+    <select name="deviceknown">
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    </select>
+    <br>
+    <label>Bank:</label>
+    <Select name="bank">
+      <option value="0">Access Bank</option>
+      <option value="1">FCMB</option>
+      <option value="2">Fidelity Bank</option>
+      <option value="3">First Bank</option>
+      <option value="4">GT Bank</option>
+      <option value="5">Polaris Bank</option>
+      <option value="6">Stambic Bank</option>
+      <option value="7">Sterling Bank</option>
+      <option value="8">UBA</option>
+      <option value="9">Zenith Bank</option>
+     </select>
+     
+      <br>
+    <label>Channel:</label>
+    <Select name="channel">
+      <option value="0">ATM</option>
+      <option value="1">Mobile</option>
+      <option value="2">Online</option>
+      <option value="3">POS</option>
+      <option value="4">Transfer</option>
+     </select>   
+     <br>
+     <label>Location Match:</label>
+     <select name="location">
+       <option value="0">No</option>
+       <option value="1">Yes</option>
+    </select>
+    <br>
+    <label>Previous Fraud Flag:</label>
+    <select name="flag">
+       <option value="0">No</option>
+       <option value="1">Yes</option>
+    </select>
+    <br>
+    <label>InternationalTransacton:</label>
+    <select name="international">
+       <option value="0">No</option>
+       <option value="1">Yes</option>
+    </select>
+    <br>
+    <label>Transaction Day:</label>
+    <Select name="day">
+      <option value="0">Friday</option>
+      <option value="1">Monday</option>
+      <option value="2">Saturday</option>
+      <option value="3">Sunday</option>
+      <option value="4">Thursday</option>
+      <option value="5">Tuesday</option>
+      <option value="6">Wednesday</option>
+     </select>
+    <br>
+    <button type="submit">Detect</button>
+    <br>
+    {% if response %}
+  <div>
+    <p style="color: {% if 'Fraud' in response %}#ff3333{% else %}#00cc44{% endif %}">
+    {{ response }}
+</p>
+  </div>
+    {% endif %}
+    </form>
+  </div>
+  
+</body>
+</html>
