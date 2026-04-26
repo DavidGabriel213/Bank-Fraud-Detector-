@@ -3,7 +3,7 @@
 A complete machine learning project that detects fraudulent bank transactions in real time with **97.11% accuracy** and **80% fraud recall**.
 
 ## 🌐 Live Demo
-**[Try the app →](https://your-deployment-url.up.railway.app)**
+**[Try the app →](https://web-bankfraud-detector.up.railway.app)**
 
 ---
 
@@ -109,7 +109,7 @@ BankFraudDetector/
 
 ## 🚀 Run Locally
 ```bash
-git clone https://github.com/DavidGabriel213/BankFraudDetector
+git clone https://github.com/DavidGabriel213/Bank-Fraud-Detector-
 cd BankFraudDetector
 pip install -r requirements.txt
 python app.py
